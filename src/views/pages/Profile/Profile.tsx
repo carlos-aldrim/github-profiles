@@ -2,17 +2,18 @@ import { AcessBar, Aside, Header, RepoCard } from "components";
 import { ValueContext } from "contexts";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useStyles } from "./Profile.styles";
+import { Main, Repos } from "./Profile.styles";
 
 export const Profile: React.FC = () => {
   const location = useLocation();
   const [username] = React.useState(
     String(location.pathname.split("/").slice(-1)[0])
   );
-  const { filteredUser, user, setError } = React.useContext(ValueContext);
+  const { filteredUser, user } = React.useContext(ValueContext);
   const [name, setName] = React.useState("");
   const navigate = useNavigate();
-  const { Main, Repos } = useStyles();
+  const { getTheme } = React.useContext(ValueContext);
+  const colors = getTheme();
 
   React.useEffect(() => {
     filteredUser(username);
@@ -37,7 +38,7 @@ export const Profile: React.FC = () => {
         value={name}
         onKeyDown={onKeySearchInput}
       />
-      <Main>
+      <Main sx={{backgroundColor: colors.backgroundPrimary}}>
         {user === undefined ? "" : <Aside user={user} name={username}/>}
         <Repos>
           {user === undefined ? "" : <AcessBar user={user} name={username}/>}

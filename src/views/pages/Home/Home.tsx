@@ -1,5 +1,5 @@
 import React from "react";
-import { useStyles } from "./Home.styles";
+import { Main } from "./Home.styles";
 import { Header } from "components";
 import { ValueContext } from "contexts";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,8 @@ export const Home: React.FC = () => {
   const { filteredUser, user } = React.useContext(ValueContext);
   const [name, setName] = React.useState("");
   const navigate = useNavigate();
-  const { Main } = useStyles();
+  const { getTheme } = React.useContext(ValueContext);
+  const colors = getTheme();
 
   const onChangeSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -33,7 +34,7 @@ export const Home: React.FC = () => {
         value={name}
         onKeyDown={onKeySearchInput}
       />
-      <Main></Main>
+      <Main sx={{backgroundColor: colors.backgroundPrimary}}/>
     </React.Fragment>
   );
 };

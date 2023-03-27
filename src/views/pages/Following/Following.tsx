@@ -2,7 +2,7 @@ import { AcessBar, Aside, Header, PeopleCard } from "components";
 import { ValueContext } from "contexts";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useStyles } from "./Following.styles";
+import { Main, List } from "./Following.styles";
 
 export const Following: React.FC = () => {
   const location = useLocation();
@@ -12,7 +12,8 @@ export const Following: React.FC = () => {
   const { filteredUser, user } = React.useContext(ValueContext);
   const [name, setName] = React.useState("");
   const navigate = useNavigate();
-  const { Main, List } = useStyles();
+  const { getTheme } = React.useContext(ValueContext);
+  const colors = getTheme();
 
   React.useEffect(() => {
     filteredUser(username);
@@ -39,7 +40,7 @@ export const Following: React.FC = () => {
         value={name}
         onKeyDown={onKeySearchInput}
       />
-      <Main>
+      <Main sx={{backgroundColor: colors.backgroundPrimary}}>
         {user === undefined ? "" : <Aside user={user} name={username}/>}
         <List>
           {user === undefined ? "" : <AcessBar user={user} name={username}/>}

@@ -2,7 +2,7 @@ import { AcessBar, Aside, Header, StarCard } from "components";
 import { ValueContext } from "contexts";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useStyles } from "./Stars.styles";
+import { Main, List } from "./Stars.styles";
 
 export const Stars: React.FC = () => {
   const location = useLocation();
@@ -12,7 +12,8 @@ export const Stars: React.FC = () => {
   const { filteredUser, user } = React.useContext(ValueContext);
   const [name, setName] = React.useState("");
   const navigate = useNavigate();
-  const { Main, List } = useStyles();
+  const { getTheme } = React.useContext(ValueContext);
+  const colors = getTheme();
 
   React.useEffect(() => {
     filteredUser(username);
@@ -41,7 +42,7 @@ export const Stars: React.FC = () => {
         value={name}
         onKeyDown={onKeySearchInput}
       />
-      <Main>
+      <Main sx={{backgroundColor: colors.backgroundPrimary}}>
         {user === undefined ? "" : <Aside user={user} name={username}/>}
         <List>
           {user === undefined ? "" : <AcessBar user={user} name={username}/>}
