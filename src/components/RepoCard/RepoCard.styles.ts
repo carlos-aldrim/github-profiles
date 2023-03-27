@@ -1,5 +1,6 @@
-import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import { styled } from "@mui/system";
+import { Typography } from "@mui/material";
 
 export const Card = styled("div")({
   width: "100%",
@@ -9,9 +10,10 @@ export const Card = styled("div")({
   },
 });
 
-export const Container = styled("div")({
+export const Container = styled(Link)({
   width: "calc(100% - 32px)",
   padding: 16,
+  textDecoration: "none",
 });
 
 export const Title = styled("div")({

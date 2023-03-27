@@ -31,12 +31,21 @@ export const Profile: React.FC = () => {
     }
   };
 
+  const onClickSearchInput = () => {
+    if (name !== "" && name !== undefined) {
+      filteredUser(name);
+      navigate("/" + name);
+      setName("");
+    }
+  };
+
   return (
     <React.Fragment>
       <Header
         onChange={onChangeSearchInput}
         value={name}
         onKeyDown={onKeySearchInput}
+        onClick={onClickSearchInput}
       />
       <Main sx={{backgroundColor: colors.backgroundPrimary}}>
         {user === undefined ? "" : <Aside user={user} name={username}/>}
@@ -44,6 +53,7 @@ export const Profile: React.FC = () => {
           {user === undefined ? "" : <AcessBar user={user} name={username}/>}
           {user?.reposList.map((repo) => (
             <RepoCard
+              login={username}
               name={repo.name}
               visibility={repo.visibility}
               language={repo.language}

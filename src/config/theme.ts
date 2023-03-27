@@ -2,10 +2,10 @@ export const lightTheme = {
   backgroundPrimary: "#F4F4F4",
   backgroundSecondary: "#C4C4C4",
   fontColorPrimary: "#9E9E9E",
-  fontColorSecondary: "#C4C4C4",
+  fontColorSecondary: "#8B949E",
   borderColor: "#9E9E9E",
   filterLogo: "invert(0.65)",
-  backgroundTag: "#E5E5E5",
+  backgroundTag: "#C4C4C4",
   backgroundButton: "#E5E5E5",
 };
 

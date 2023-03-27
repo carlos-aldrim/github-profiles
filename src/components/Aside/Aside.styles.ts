@@ -2,11 +2,12 @@ import { styled } from "@mui/system";
 import { Link } from "react-router-dom";
 
 export const Container = styled("div")({
-  width: "40%",
+  width: "max-content",
   padding: 16,
   display: "flex",
   justifyContent: "left",
   flexDirection: "column",
+  marginRight: "calc(1rem + 1vw)",
 });
 
 export const Avatar = styled("div")({
@@ -20,9 +21,9 @@ export const Avatar = styled("div")({
 
 export const Image = styled("img")({
   borderRadius: "50%",
-  width: "calc(100% - 5px)",
+  width: "calc(7rem + 7vw)",
   zIndex: 4,
-  border: "2px solid #C9D1D9",
+  border: "2px solid #8B949E",
 });
 
 export const Login = styled(Link)({
@@ -30,10 +31,11 @@ export const Login = styled(Link)({
   marginBottom: "16px",
   fontSize: "calc(0.75rem + 0.5vw)",
   lineHeight: 1.25,
-  color: "#C9D1D9",
+  color: "#8B949E",
   fontWeight: 300,
   cursor: "pointer",
   textDecoration: "none",
+  width: "max-content",
 });
 
 export const Name = styled(Link)({
@@ -41,18 +43,19 @@ export const Name = styled(Link)({
   marginTop: "16px",
   fontSize: "calc(1rem + 0.5vw)",
   lineHeight: 1.25,
-  color: "#B9C1C9",
+  color: "#8B949E",
   fontWeight: 600,
   cursor: "pointer",
   textDecoration: "none",
+  width: "max-content",
 });
 
 export const Details = styled("div")({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  color: "#B9C1C9",
-  width: "auto",
+  color: "#8B949E",
+  width: "max-content",
 });
 
 export const FollowersList = styled("div")({

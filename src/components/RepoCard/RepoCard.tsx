@@ -3,6 +3,7 @@ import { Card, Color, Container, DateUpdate, Details, Languagem, Name, Tag, Titl
 import { Divider } from "@mui/material";
 
 export interface RepoCardProps {
+  login: string;
   name: string;
   visibility: string;
   language: string;
@@ -11,6 +12,7 @@ export interface RepoCardProps {
 };
 
 export const RepoCard: React.FC<RepoCardProps> = ({
+  login,
   name,
   visibility,
   language,
@@ -81,7 +83,7 @@ export const RepoCard: React.FC<RepoCardProps> = ({
 
   return (
     <Card>
-      <Container>
+      <Container to={"https://github.com/" + login + "/" + name}>
           <Title>
             <Name>{name}</Name>
             <Tag>

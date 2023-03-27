@@ -5,7 +5,7 @@ import { ValueContext } from "contexts";
 import { useNavigate } from "react-router-dom";
 
 export const Home: React.FC = () => {
-  const { filteredUser, user } = React.useContext(ValueContext);
+  const { filteredUser } = React.useContext(ValueContext);
   const [name, setName] = React.useState("");
   const navigate = useNavigate();
   const { getTheme } = React.useContext(ValueContext);
@@ -25,7 +25,13 @@ export const Home: React.FC = () => {
     }
   };
 
-  console.log(user, name);
+  const onClickSearchInput = () => {
+    if (name !== "" && name !== undefined) {
+      filteredUser(name);
+      navigate("/" + name);
+      setName("");
+    }
+  };
 
   return (
     <React.Fragment>
@@ -33,6 +39,7 @@ export const Home: React.FC = () => {
         onChange={onChangeSearchInput}
         value={name}
         onKeyDown={onKeySearchInput}
+        onClick={onClickSearchInput}
       />
       <Main sx={{backgroundColor: colors.backgroundPrimary}}/>
     </React.Fragment>

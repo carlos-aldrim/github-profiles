@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import { styled } from "@mui/system";
+import { Link } from "react-router-dom";
 
 export const Card = styled("div")({
   width: "100%",
@@ -26,10 +27,11 @@ export const Details = styled("div")({
   marginTop: "5px",
 });
 
-export const User = styled("div")({
+export const User = styled(Link)({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
+  textDecoration: "none",
 });
 
 export const Image = styled("img")({

@@ -33,7 +33,13 @@ export const Stars: React.FC = () => {
     }
   };
 
-  console.log(user);
+  const onClickSearchInput = () => {
+    if (name !== "" && name !== undefined) {
+      filteredUser(name);
+      navigate("/" + name);
+      setName("");
+    }
+  };
 
   return (
     <React.Fragment>
@@ -41,6 +47,7 @@ export const Stars: React.FC = () => {
         onChange={onChangeSearchInput}
         value={name}
         onKeyDown={onKeySearchInput}
+        onClick={onClickSearchInput}
       />
       <Main sx={{backgroundColor: colors.backgroundPrimary}}>
         {user === undefined ? "" : <Aside user={user} name={username}/>}

@@ -26,7 +26,7 @@ export const PeopleCard: React.FC<PeopleCardProps> = ({
 
   return (
     <Card>
-      <User>
+      <User to={"https://github.com/" + username}>
         <Image src={user?.avatar_url} alt=""/>
         <Container>
           <Title>

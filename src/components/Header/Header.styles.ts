@@ -31,6 +31,8 @@ export const useStyles = () => {
     fontSize: "calc(0.75rem + 0.5vw)",
     color: colors.fontColorPrimary,
     fontWeight: 700,
+    letterSpacing: 0,
+    width: "max-content",
   });
   
   const Logo = styled("img") ({
@@ -41,7 +43,6 @@ export const useStyles = () => {
     display: "flex",
     flexDirection: "row",
     marginRight: "25px",
-    minWidth: "180px",
   });
   
   const Search = styled("div") ({
@@ -50,15 +51,13 @@ export const useStyles = () => {
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    "@media (min-width: 1200px)": {
-      "& div": {
-        width: "400px",
-        "& p": {
-          color: "#FF0000",
-          margin: "0px 0px 0px 2px",
-          fontSize: "calc(0.5rem + 0.25vw)",
-        },
-      }
+    "& div": {
+      width: "50%",
+      "& p": {
+        color: "#FF0000",
+        margin: "0px 0px 0px 2px",
+        fontSize: "calc(0.5rem + 0.25vw)",
+      },
     },
   });
 

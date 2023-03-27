@@ -11,12 +11,14 @@ export interface HeaderProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onKeyDown?: (event: any) => void;
   value?: string;
+  onClick?: () => void; 
 };
 
 export const Header: React.FC<HeaderProps> = ({
   onChange,
   onKeyDown,
   value,
+  onClick,
 }) => {
   const navigate = useNavigate();
   const { Container, LabelText, Logo, Search, Title } = useStyles();
@@ -36,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({
       <Search>
         <TextField
           placeholder="Pesquisar..."
-          endAdornment={<ArrowIcon/>}
+          endAdornment={<ArrowIcon onClick={onClick}/>}
           onChange={onChange}
           onKeyDown={onKeyDown}
           value={value}
