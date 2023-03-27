@@ -1,0 +1,1 @@
+export { AcessBar } from "./AcessBar";
