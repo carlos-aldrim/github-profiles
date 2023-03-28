@@ -8,22 +8,20 @@ import StarIcon from "@mui/icons-material/StarBorderOutlined";
 
 export interface AcessBarProps {
   user: UserInfo;
-  name: string;
 };
 
 export const AcessBar: React.FC<AcessBarProps> = ({
   user,
-  name,
 }) => {
   const navigate = useNavigate();
   const { Container, Button, Tag } = useStyles();
 
   const onClickRepoPage = () => {
-    navigate("/" + name);
+    navigate("/" + user.login);
   };
 
   const onClickStarsPage = () => {
-    navigate("/" + name + "/stars");
+    navigate("/" + user.login + "/stars");
   };
 
   return (

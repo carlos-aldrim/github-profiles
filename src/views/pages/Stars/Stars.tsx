@@ -41,6 +41,8 @@ export const Stars: React.FC = () => {
     }
   };
 
+  console.log(user?.login, username, name);
+
   return (
     <React.Fragment>
       <Header
@@ -52,7 +54,7 @@ export const Stars: React.FC = () => {
       <Main sx={{backgroundColor: colors.backgroundPrimary}}>
         {user === undefined ? "" : <Aside user={user} name={username}/>}
         <List>
-          {user === undefined ? "" : <AcessBar user={user} name={username}/>}
+          {user === undefined ? "" : <AcessBar user={user}/>}
           {user?.starsList.map((user) => (
             <StarCard
               name={user.full_name}

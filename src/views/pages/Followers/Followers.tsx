@@ -41,6 +41,8 @@ export const Followers: React.FC = () => {
     }
   };
 
+  console.log(user?.login, username, name);
+
   return (
     <React.Fragment>
       <Header
@@ -52,7 +54,7 @@ export const Followers: React.FC = () => {
       <Main sx={{backgroundColor: colors.backgroundPrimary}}>
         {user === undefined ? "" : <Aside user={user} name={username}/>}
         <List>
-          {user === undefined ? "" : <AcessBar user={user} name={username}/>}
+          {user === undefined ? "" : <AcessBar user={user}/>}
           {user?.followersList.map((user) => (
             <PeopleCard name={user.name} login={user.login} />
           ))}

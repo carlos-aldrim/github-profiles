@@ -16,20 +16,20 @@ export const Aside: React.FC<AsideProps> = ({
   const navigate = useNavigate();
 
   const onClickFollowersPage = () => {
-    navigate("/" + name + "/followers");
+    navigate("/" + user.login + "/followers");
   };
 
   const onClickFollowingPage = () => {
-    navigate("/" + name + "/following");
+    navigate("/" + user.login + "/following");
   };
 
   return (
     <Container>
       <Avatar>
-        <Image src={user.avatar_url} alt={user?.name} />
+        <Image src={user.avatar_url} alt={user.name} />
       </Avatar>
-      <Name to={"https://github.com/" + name}>{user.name}</Name>
-      <Login to={"https://github.com/" + name}>{user.login}</Login>
+      <Name to={"https://github.com/" + user.login}>{user.name}</Name>
+      <Login to={"https://github.com/" + user.login}>{user.login}</Login>
       <Details>
         <FollowersList onClick={onClickFollowersPage}>
           <GroupIcon />

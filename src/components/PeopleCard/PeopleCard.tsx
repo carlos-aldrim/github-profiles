@@ -4,6 +4,8 @@ import { Bio, Card, Container, Details, Login, Name, Title, Location, User, Imag
 import { API } from "services/API";
 import { PeopleInfo } from "services/interface";
 import LocationIcon from "@mui/icons-material/LocationOnOutlined";
+import { ValueContext } from "contexts";
+import { useNavigate } from "react-router-dom";
 
 export interface PeopleCardProps {
   name: string;
@@ -15,7 +17,9 @@ export const PeopleCard: React.FC<PeopleCardProps> = ({
   login,
 }) => {
   const [user, setUser] = React.useState<PeopleInfo>();
+  const { filteredUser } = React.useContext(ValueContext);
   const username = login;
+  const navigate = useNavigate();
 
   const userFiltered = async () => {
     const mainData = (await API.get(`/${username}`)).data;
@@ -24,9 +28,14 @@ export const PeopleCard: React.FC<PeopleCardProps> = ({
 
   userFiltered();
 
+  const onClickUserPage = () => {
+    filteredUser(username);
+    navigate("/" + username);
+  };
+
   return (
     <Card>
-      <User to={"https://github.com/" + username}>
+      <User onClick={onClickUserPage}>
         <Image src={user?.avatar_url} alt=""/>
         <Container>
           <Title>
