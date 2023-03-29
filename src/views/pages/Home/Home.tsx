@@ -5,11 +5,14 @@ import { ValueContext } from "contexts";
 import { useNavigate } from "react-router-dom";
 
 export const Home: React.FC = () => {
-  const { filteredUser } = React.useContext(ValueContext);
+  const { filteredUser, getTheme, setUser } = React.useContext(ValueContext);
   const [name, setName] = React.useState("");
   const navigate = useNavigate();
-  const { getTheme } = React.useContext(ValueContext);
   const colors = getTheme();
+
+  React.useEffect(() => {
+    setUser(undefined);
+  }, []);
 
   const onChangeSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
